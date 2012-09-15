@@ -1,5 +1,11 @@
 <?php
 
+if(isset($_GET['jquery'])){
+	readfile(dirname(__FILE__).'/jquery.js');
+	exit;
+}
+
+
 class Form
 {
 	private $_items;
@@ -16,24 +22,33 @@ class Form
 
 	public function run()
 	{
+		echo '<!DOCTYPE html>';
+		echo '<html>';
+		echo '<head>';
+		echo '<script type="text/javascript" src="'.$_SERVER['PHP_SELF'].'?jquery"></script>';
+		echo '</head>';
+		echo '<body>';
 		foreach($this->_items as $item){
 			echo $item;
 		}
+		echo '</body>';
+		echo '</html>';
 	}
 }
 
 class Input
 {
-	private $_label;
+	private $_label, $_id;
 
-	public function __construct($label='')
+	public function __construct($label='',$id='')
 	{
 		$this->_label = $label;
+		$this->_id = $id;
 	}
 
 	public function __toString()
 	{
-		return sprintf('%s <input value="" />',$this->_label);
+		return sprintf('%s <input id="%s" value="" />',$this->_label,$this->_id);
 	}
 }
 
@@ -56,7 +71,7 @@ class Button
 
 	public function __toString()
 	{
-		return sprintf('<input type="button" value="%s" />',$this->_label);
+		return sprintf('<input type="button" value="%s" onclick="alert(1);" />',$this->_label);
 	}
 }
 
@@ -64,9 +79,12 @@ class Button
 
 
 (new Form(
-	new Input('Enter title:'),
-	new Button('OK',function($me){
-		$me->alert('Hello!');
+	new Input('Enter your name', '#name'),
+	new Button('OK',function($me, $data){
+		$me->alert('Hello ' . $data['title']);
 	})
 	))->run();
+
+
+
 
