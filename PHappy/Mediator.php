@@ -17,6 +17,13 @@ class Mediator
 		return isset($this->_values[$key]) ? $this->_values[$key] : null;
 	}
 
+	public function __set($key, $value){
+		if(!isset($this->_values[$key])){
+			throw new Exception(sprintf('Invalid key "%s"', $key));
+		}
+		$this->_list[] = sprintf('$("#%s").val(%s)', $key, json_encode($value));
+	}
+
 	public function alert($msg)
 	{
 		$this->_list[] = sprintf('alert(%s)', json_encode($msg));

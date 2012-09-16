@@ -17,7 +17,7 @@ class Control
 			}
 		}
 		if(!$this->_id){
-			$this->_id = sprintf('control%d', $this->_idTop++);
+			$this->_id = sprintf('control%d', self::$_idTop++);
 		}
 	}
 
