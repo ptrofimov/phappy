@@ -27,6 +27,12 @@ require_once __DIR__ . '/../PHappy/PHappy.php';
 		}else{
 			$me->alert('You don\'t like pizza');
 		}
+	}),
+	new Button('Set checked', function($me){
+		$me->pizza = true;
+	}),
+	new Button('Set unchecked', function($me){
+		$me->pizza = false;
 	})
 	))->run();
 

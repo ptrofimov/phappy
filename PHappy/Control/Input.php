@@ -11,6 +11,6 @@ class Input extends Control
 
 	public function __toString()
 	{
-		return sprintf('<label>%s <input name="%s" id="%s" value="" /></label>', $this->_label, $this->getId(), $this->getId());
+		return sprintf('<label>%s <input type="text" name="%s" id="%s" value="" /></label>', $this->_label, $this->getId(), $this->getId());
 	}
 }
