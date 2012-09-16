@@ -33,7 +33,11 @@ require_once __DIR__ . '/../PHappy/PHappy.php';
 	}),
 	new Button('Set unchecked', function($me){
 		$me->pizza = false;
-	})
+	}),
+	new RadioButton(array(
+		'cats' => 'I like cats',
+		'dogs' => 'I like dogs'
+		), '#pets')
 	))->run();
 
 
