@@ -1,15 +1,15 @@
 <?php
 require_once __DIR__ . '/../PHappy/PHappy.php';
 
-/*(new Form(
+(new Form(
 	new Input('Enter your #name'),
 	new Button('Say hello', function($me) {
 		$me->name = ucfirst($me->name);
 		$me->alert('Hello ' . $me->name);
 	})
-	))->run();*/
+	))->run();
 
-(new Form(
+/*(new Form(
 	new Input('Enter your #name'),
 	new Button('Say hello', function($me) {
 		$me->alert('Hello ' . $me->name);
@@ -38,7 +38,7 @@ require_once __DIR__ . '/../PHappy/PHappy.php';
 		'cats' => 'I like cats',
 		'dogs' => 'I like dogs'
 		), '#pets')
-	))->run();
+	))->run();*/
 
 
 

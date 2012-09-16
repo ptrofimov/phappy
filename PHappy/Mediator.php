@@ -21,6 +21,7 @@ class Mediator
 		if(!isset($this->_values[$key])){
 			throw new Exception(sprintf('Invalid key "%s"', $key));
 		}
+		$this->_values[$key] = $value;
 		$this->_list[] = sprintf('phappy.setValue("%s",%s)', $key, json_encode($value));
 	}
 
