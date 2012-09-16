@@ -8,5 +8,6 @@ window.phappy = {
 			data: data,
 			url: '?event'
 		});
+		return false;
 	}
 };

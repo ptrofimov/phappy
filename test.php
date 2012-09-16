@@ -1,11 +1,17 @@
 <?php
 
-if(isset($_GET['jquery'])){
+if(isset($_GET['js'])){
+	header('Content-Type: text/javascript');
 	readfile(dirname(__FILE__).'/jquery.js');
+	readfile(dirname(__FILE__).'/bootstrap.js');
 	readfile(dirname(__FILE__).'/phappy.js');
 	exit;
 }
-
+if(isset($_GET['css'])){
+	header('Content-Type: text/css');
+	readfile(dirname(__FILE__).'/bootstrap.css');
+	exit;
+}
 
 class Form
 {
@@ -34,14 +40,17 @@ class Form
 		echo '<!DOCTYPE html>';
 		echo '<html>';
 		echo '<head>';
-		echo '<script type="text/javascript" src="'.$_SERVER['PHP_SELF'].'?jquery"></script>';
+		echo '<link rel="stylesheet" type="text/css" href="'.$_SERVER['PHP_SELF'].'?css" />';
+		// echo '<link rel="stylesheet" type="text/css" href="bootstrap.css" />';
+		echo '<script type="text/javascript" src="'.$_SERVER['PHP_SELF'].'?js"></script>';
 		echo '</head>';
-		echo '<body>';
+		echo '<body><div class="container">';
 		echo '<form>';
+		echo '<legend>Untitled form</legend>';
 		foreach($this->_items as $item){
 			echo $item;
 		}
-		echo '</form>';
+		echo '</form></div>';
 		echo '</body>';
 		echo '</html>';
 	}
@@ -59,7 +68,7 @@ class Input
 
 	public function __toString()
 	{
-		return sprintf('%s <input name="title" id="%s" value="" />',$this->_label,$this->_id);
+		return sprintf('<label>%s <input name="title" id="%s" value="" /></label>',$this->_label,$this->_id);
 	}
 }
 
@@ -100,7 +109,7 @@ class Button
 
 	public function __toString()
 	{
-		return sprintf('<input type="button" value="%s" onclick="phappy.onclick(this)" />',$this->_label);
+		return sprintf('<button class="btn" type="button" onclick="phappy.onclick(this)">%s</button>',$this->_label);
 	}
 }
 
