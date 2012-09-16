@@ -54,9 +54,11 @@ class Input
 
 class Response
 {
-	public function alert($title)
-	{
+	private $_list;
 
+	public function alert($msg)
+	{
+		$this->_list[] = sprintf('alert("%s")', $msg);
 	}
 }
 
@@ -80,8 +82,8 @@ class Button
 
 (new Form(
 	new Input('Enter your name', '#name'),
-	new Button('OK',function($me, $data){
-		$me->alert('Hello ' . $data['title']);
+	new Button('OK', function($me) {
+		$me->alert('Hello ' . $me->name);
 	})
 	))->run();
 
