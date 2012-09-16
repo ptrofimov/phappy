@@ -6,8 +6,13 @@ window.phappy = {
 			type: 'POST',
 			dataType: 'script',
 			data: data,
-			url: '?event'
+			url: '?event=click&id=' + item.attr('id')
 		});
 		return false;
 	}
 };
+$(function(){
+	$('button').on('click', function(e){
+		phappy.onclick(e.srcElement);
+	})
+});

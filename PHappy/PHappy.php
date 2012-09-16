@@ -15,39 +15,34 @@ if(isset($_GET['css'])){
 
 class Form
 {
-	private $_items;
+	private $_controls;
 
 	public function __construct()
 	{
-		$this->_items=array();
-		$args=func_get_args();
-		foreach($args as $item){
-			$this->_items[]=$item;
+		$this->_controls = array();
+		foreach(func_get_args() as $item){
+			$this->_controls[ $item->getId() ] = $item;
 		}
 	}
 
+	public function getControl($id){
+		return isset($this->_controls[$id]) ? $this->_controls[$id] : null;
+	}
 
 	public function run()
 	{
-		if(isset($_GET['event'])){
-			//echo sprintf('alert(%s)',json_encode(var_export($_POST,true)));
-			$me = new Me($_POST);
-			$this->_items[1]->onclick($me);
-			echo $me;
-			exit;
-		}
+		new Mediator($this);
 
 		echo '<!DOCTYPE html>';
 		echo '<html>';
 		echo '<head>';
 		echo '<link rel="stylesheet" type="text/css" href="'.$_SERVER['PHP_SELF'].'?css" />';
-		// echo '<link rel="stylesheet" type="text/css" href="bootstrap.css" />';
 		echo '<script type="text/javascript" src="'.$_SERVER['PHP_SELF'].'?js"></script>';
 		echo '</head>';
 		echo '<body><div class="container">';
 		echo '<form>';
-		echo '<legend>Use PHappy and be happy!</legend>';
-		foreach($this->_items as $item){
+		echo '<legend>Untitled form</legend>';
+		foreach($this->_controls as $item){
 			echo $item;
 		}
 		echo '</form></div>';
@@ -99,14 +94,22 @@ class Input extends Control
 	}
 }
 
-class Me
+class Mediator
 {
-	private $_list;
+	private $_form, $_list, $_values;
 
-	public function __construct($data){
-		foreach($data as $key=>$item){
-			$this->{$key} = $item;
+	public function __construct(Form $form){
+		$this->_form = $form;
+		if(isset($_GET['event'])){
+			$this->_values = $_POST;
+			$this->_form->getControl($_GET['id'])->onclick($this);
+			echo $this;
+			exit;
 		}
+	}
+
+	public function __get($key){
+		return isset($this->_values[$key]) ? $this->_values[$key] : null;
 	}
 
 	public function alert($msg)
@@ -137,6 +140,6 @@ class Button extends Control
 
 	public function __toString()
 	{
-		return sprintf('<button id="%s" class="btn" type="button" onclick="phappy.onclick(this)">%s</button>', $this->getId(), $this->_label);
+		return sprintf('<button id="%s" class="btn" type="button">%s</button>', $this->getId(), $this->_label);
 	}
 }
