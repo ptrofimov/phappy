@@ -74,7 +74,7 @@ class Control
 			}
 		}
 		if(!$this->_id){
-			$this->_id = $this->_idTop++;
+			$this->_id = sprintf('control%d', $this->_idTop++);
 		}
 	}
 
@@ -137,6 +137,6 @@ class Button extends Control
 
 	public function __toString()
 	{
-		return sprintf('<button class="btn" type="button" onclick="phappy.onclick(this)">%s</button>', $this->_label);
+		return sprintf('<button id="%s" class="btn" type="button" onclick="phappy.onclick(this)">%s</button>', $this->getId(), $this->_label);
 	}
 }
