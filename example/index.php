@@ -46,7 +46,7 @@ class Form
 		echo '</head>';
 		echo '<body><div class="container">';
 		echo '<form>';
-		echo '<legend>Untitled form</legend>';
+		echo '<legend>Use PHappy and be happy!</legend>';
 		foreach($this->_items as $item){
 			echo $item;
 		}
@@ -118,7 +118,7 @@ class Button
 
 (new Form(
 	new Input('Enter your name', '#name'),
-	new Button('OK', function($me) {
+	new Button('Say hello', function($me) {
 		$me->alert('Hello ' . $me->title);
 	})
 	))->run();
