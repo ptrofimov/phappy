@@ -1,6 +1,6 @@
 # &#9786;&#9786;&#9786; PHappy! &#9786;&#9786;&#9786;
 
-*Use PHappy and be happy: rapid PHP prototyping*
+*Use PHappy and be happy: rapid PHP prototyping (pronounced as [pi`happi])*
 
 This is base for rapid PHP prototyping. No HTML, no CSS, no JS, only pure PHP.
 
