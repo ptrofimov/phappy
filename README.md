@@ -1,10 +1,10 @@
-# PHappy!!! :):):)
+# PHappy
 
 *Use PHappy and be happy: rapid PHP prototyping*
 
 This is base for rapid PHP prototyping. No HTML, no CSS, no JS, only pure PHP.
 
-## Example
+**Just write few lines of PHP code:**
 
 ```php
 (new Form(
@@ -15,3 +15,7 @@ This is base for rapid PHP prototyping. No HTML, no CSS, no JS, only pure PHP.
 	})
 	))->run();
 ```
+
+**and get working application:**
+
+![PHappy](https://raw.github.com/ptrofimov/phappy/master/example/picture.png)
