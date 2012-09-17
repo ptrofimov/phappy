@@ -25,7 +25,8 @@ This is base for rapid PHP prototyping. No HTML, no CSS, no JS, only pure PHP.
 - HTML5, jQuery, Bootstrap and PHP 5.4
 - Generic Bootstrap controls
 - Event handlers on server-side using all PHP functionality
-- Js and css loaded via one public file
+- Bidirectional data exchange: form on client side <-> server event handler
+- Javascript and CSS loaded via one public file
 
 ## Notice
 
