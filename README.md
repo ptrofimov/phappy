@@ -1,5 +1,3 @@
-&#9786;
-
 # &#9786;&#9786;&#9786; PHappy! &#9786;&#9786;&#9786;
 
 *Use PHappy and be happy: rapid PHP prototyping*
