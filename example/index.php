@@ -1,13 +1,16 @@
 <?php
 require_once __DIR__ . '/../PHappy/PHappy.php';
 
-(new Form(
+/*(new Form(
 	new Input('Enter your #name'),
 	new Button('Say hello', function($me) {
 		$me->name = ucfirst($me->name);
 		$me->alert('Hello ' . $me->name);
 	})
 	))->run();
+*/
+
+(new Button('OK'))->run();
 
 /*(new Form(
 	new Input('Enter your #name'),
