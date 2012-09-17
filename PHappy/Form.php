@@ -29,7 +29,7 @@ class Form
 
 		echo '<!DOCTYPE html>';
 		echo '<html>';
-		echo '<head>';
+		echo '<head><title>PHappy</title>';
 		echo '<link rel="stylesheet" type="text/css" href="'.$_SERVER['PHP_SELF'].'?css" />';
 		echo '<script type="text/javascript" src="'.$_SERVER['PHP_SELF'].'?js"></script>';
 		echo '</head>';
