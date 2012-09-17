@@ -20,6 +20,13 @@ This is base for rapid PHP prototyping. No HTML, no CSS, no JS, only pure PHP.
 
 ![PHappy](https://raw.github.com/ptrofimov/phappy/master/example/picture.png)
 
+## Inside
+
+- HTML5, jQuery, Bootstrap and PHP 5.4
+- Generic Bootstrap controls
+- Event handlers on server-side using all PHP functionality
+- Js and css loaded via one public file
+
 ## Notice
 
 This is just the beginning. The outline. The project is in active development. 
