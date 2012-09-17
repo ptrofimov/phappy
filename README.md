@@ -19,3 +19,11 @@ This is base for rapid PHP prototyping. No HTML, no CSS, no JS, only pure PHP.
 **and get working application:**
 
 ![PHappy](https://raw.github.com/ptrofimov/phappy/master/example/picture.png)
+
+### Notice
+
+This is just the beginning. The outline. The project is in active development. 
+If you wanna be a collaborator you are welcome. Write me to issues.
+
+--------------------------------------------------------
+*Tags:* phappy, php, prototyping
