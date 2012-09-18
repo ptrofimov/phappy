@@ -9,6 +9,8 @@ $tableData = array(
 $tableHeaders = array('#', 'First Name', 'Last Name', 'Username');
 
 (new Page(
+	'PHappy widgets',
+	'#phappy',
 	new Heading('[PHappy widgets]', 2),
 	new Heading('[headings]', 4),
 	new Heading('h1. Heading 1 (new Heading(title, 1))', 1),

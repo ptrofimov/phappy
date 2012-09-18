@@ -1,13 +1,46 @@
 <?php
+/**
+ * Page widget (HTML page)
+ * 
+ * @author Petr Trofimov <petrofimov@yandex.ru>
+ */
 class Page extends Widget
 {
-	private $_widgets;
+	/**
+	 * @var string
+	 */
+	private $_title = '';
 
+	/**
+	 * @var array
+	 */
+	private $_widgets = array();
+
+	/**
+	 * __construct([title], [selector], [widgets])
+	 */
 	public function __construct(){
-		$this->_widgets = array();
-		foreach(func_get_args() as $item){
+		$args = func_get_args();
+		$selector = '';
+		if(isset($args[0]) && is_string($args[0])){
+			if(isset($args[1]) && is_string($args[1])){
+				$this->_title = $args[0];
+			}elseif($args[0] && ($args[0][0] == '#' || $args[0][0] == '.')){
+				$selector = $args[0];
+			}
+			unset($args[0]);
+		}
+		if(isset($args[1]) && is_string($args[1])){
+			$selector = $args[1];
+			unset($args[1]);
+		}
+		foreach($args as $item){
+			if(! $item instanceof Widget){
+				throw new Exception('Argument must be widget instance');
+			}
 			$this->_widgets[ $item->getId() ] = $item;
 		}
+		parent::__construct($selector, $this->_title);
 	}
 
 	public function getWidget($id){
@@ -36,7 +69,7 @@ class Page extends Widget
 		echo '<link rel="stylesheet" type="text/css" href="'.$_SERVER['PHP_SELF'].'?css" />';
 		echo '<script type="text/javascript" src="'.$_SERVER['PHP_SELF'].'?js"></script>';
 		echo '</head>';
-		echo '<body>';
+		echo sprintf('<body id="%s" class="%s">', $this->getId(), implode(' ', $this->getClasses()));
 		echo '<div class="container">';
 		foreach($this->_widgets as $widget){
 			$widget->run();
