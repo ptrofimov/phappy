@@ -1,8 +1,21 @@
 <?php
 class Page extends Widget
 {
-	public function __construct(){
+	private $_widgets;
 
+	public function __construct(){
+		$this->_widgets = array();
+		foreach(func_get_args() as $item){
+			$this->_widgets[ $item->getId() ] = $item;
+		}
+	}
+
+	public function getWidget($id){
+		return isset($this->_widgets[$id]) ? $this->_widgets[$id] : null;
+	}
+
+	public function getWidgets(){
+		return $this->_widgets;
 	}
 
 	public function run(){
@@ -25,6 +38,9 @@ class Page extends Widget
 		echo '</head>';
 		echo '<body>';
 		echo '<div class="container">';
+		foreach($this->_widgets as $widget){
+			$widget->run();
+		}
 		echo '</div>';
 		echo '</body>';
 		echo '</html>';

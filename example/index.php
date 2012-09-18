@@ -1,7 +1,9 @@
 <?php
 require_once __DIR__ . '/../PHappy/PHappy.php';
 
-(new Page())->run();
+(new Page(
+	new Header('First PHappy application', 4, '#id.class1.class2')
+	))->run();
 
 
 

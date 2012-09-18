@@ -1,13 +1,21 @@
 <?php
 class Widget
 {
-	private $_id;
+	private $_id, $_classes = array();
 	private static $_idTop = 0;
 
 	public function __construct($selector = '', $hashString = ''){
 		if($selector){
-			if(preg_match('/^#([a-zA-Z0-9_]+)$/', $selector, $matches)){
-				$this->_id = $matches[1];
+			if(preg_match('/^(#[a-zA-Z0-9_-]+)?(\.[a-zA-Z0-9_-]+)*$/', $selector)){
+				$items = explode('.', $selector);
+				if($items[0][0] == '#'){
+					$this->_id = substr($items[0], 1);
+					unset($items[0]);
+					$items = array_values($items);
+				}
+				foreach($items as $item){
+					$this->_classes[] = $item;
+				}
 			}else{
 				throw new Exception(sprintf('Invalid selector "%s"', $selector));
 			}
@@ -23,6 +31,10 @@ class Widget
 
 	public function getId(){
 		return $this->_id;
+	}
+
+	public function getClasses(){
+		return $this->_classes;
 	}
 
 	public function run(){
