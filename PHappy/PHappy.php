@@ -6,5 +6,6 @@
  */
 require_once('Widget.php');
 require_once('Widget/Header.php');
+require_once('Widget/Paragraph.php');
 require_once('Page.php');
 
