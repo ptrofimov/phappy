@@ -3,8 +3,8 @@ require_once __DIR__ . '/../PHappy/PHappy.php';
 
 $tableData = array(
 	array('1', 'Mark', 'Otto', '@mdo'),
-	array('1', 'Jacob', 'Thornton', '@fat'),
-	array('1', 'Larry', 'the Bird', '@twitter'),
+	array('2', 'Jacob', 'Thornton', '@fat'),
+	array('3', 'Larry', 'the Bird', '@twitter'),
 	);
 $tableHeaders = array('#', 'First Name', 'Last Name', 'Username');
 
