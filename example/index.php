@@ -1,7 +1,15 @@
 <?php
 require_once __DIR__ . '/../PHappy/PHappy.php';
 
+$tableData = array(
+	array('1', 'Mark', 'Otto', '@mdo'),
+	array('1', 'Jacob', 'Thornton', '@fat'),
+	array('1', 'Larry', 'the Bird', '@twitter'),
+	);
+$tableHeaders = array('#', 'First Name', 'Last Name', 'Username');
+
 (new Page(
+	new Heading('[PHappy widgets]', 2),
 	new Heading('[headings]', 4),
 	new Heading('h1. Heading 1 (new Heading(title, 1))', 1),
 	new Heading('h2. Heading 2 (new Heading(title, 2))', 2),
@@ -20,7 +28,9 @@ require_once __DIR__ . '/../PHappy/PHappy.php';
 	new Heading('[ordered list `new OrderedList(array)`]', 4),
 	new OrderedList(array('Lorem ipsum dolor sit amet', 'Consectetur adipiscing elit', 'Integer molestie lorem at massa', 'Facilisis in pretium nisl aliquet')),
 	new Heading('[unstyled list `new UnorderedList(array, ".unstyled")`]', 4),
-	new UnorderedList(array('Lorem ipsum dolor sit amet', 'Consectetur adipiscing elit', 'Integer molestie lorem at massa', 'Facilisis in pretium nisl aliquet'), '.unstyled')
+	new UnorderedList(array('Lorem ipsum dolor sit amet', 'Consectetur adipiscing elit', 'Integer molestie lorem at massa', 'Facilisis in pretium nisl aliquet'), '.unstyled'),
+	new Heading('[table `new Table(data, headers)`]', 4),
+	new Table($tableData, $tableHeaders)
 	))->run();
 
 

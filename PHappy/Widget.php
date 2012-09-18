@@ -1,7 +1,7 @@
 <?php
 class Widget
 {
-	private $_id, $_classes = array();
+	private $_id, $_classes = array(), $_parent = null;
 	private static $_idTop = 0;
 
 	public function __construct($selector = '', $hashString = ''){
@@ -38,6 +38,16 @@ class Widget
 	}
 
 	public function run(){
-		return '';
+		/*if(!$this->_parent && !($this instanceof Page)){
+			(new Page($this))->run();
+		}*/
+	}
+
+	public function setParent($parent){
+		$this->_parent = $parent;
+	}
+
+	public function getParent(){
+		return $this->_parent;
 	}
 }
