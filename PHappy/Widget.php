@@ -8,7 +8,7 @@ class Widget
 		if($selector){
 			if(preg_match('/^(#[a-zA-Z0-9_-]+)?(\.[a-zA-Z0-9_-]+)*$/', $selector)){
 				$items = explode('.', $selector);
-				if($items[0][0] == '#'){
+				if(!empty($items[0]) && $items[0][0] == '#'){
 					$this->_id = substr($items[0], 1);
 					unset($items[0]);
 					$items = array_values($items);

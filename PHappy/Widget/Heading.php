@@ -1,10 +1,10 @@
 <?php
 /**
- * Header widget (h1, h2, etc)
+ * Heading widget (h1, h2, etc)
  * 
  * @author Petr Trofimov <petrofimov@yandex.ru>
  */
-class Header extends Widget
+class Heading extends Widget
 {
 	/**
 	 * @var string
