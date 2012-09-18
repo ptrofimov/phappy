@@ -2,17 +2,25 @@
 require_once __DIR__ . '/../PHappy/PHappy.php';
 
 (new Page(
+	new Heading('[headings]', 4),
 	new Heading('h1. Heading 1 (new Heading(title, 1))', 1),
 	new Heading('h2. Heading 2 (new Heading(title, 2))', 2),
 	new Heading('h3. Heading 3 (new Heading(title, 3))', 3),
 	new Heading('h4. Heading 4 (new Heading(title, 4))', 4),
 	new Heading('h5. Heading 5 (new Heading(title, 5))', 5),
 	new Heading('h6. Heading 6 (new Heading(title, 6))', 6),
+	new Heading('[paragraphs]', 4),
 	new Paragraph('Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh. (new Paragraph(text, ".muted"))', '.muted'),
 	new Paragraph('Etiam porta sem malesuada magna mollis euismod. (new Paragraph(text, ".text-warning"))', '.text-warning'),
 	new Paragraph('Donec ullamcorper nulla non metus auctor fringilla. (new Paragraph(text, ".text-error"))', '.text-error'),
 	new Paragraph('Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis. (new Paragraph(text, ".text-info"))', '.text-info'),	
-	new Paragraph('Duis mollis, est non commodo luctus, nisi erat porttitor ligula. (new Paragraph(text, ".text-success"))', '.text-success')
+	new Paragraph('Duis mollis, est non commodo luctus, nisi erat porttitor ligula. (new Paragraph(text, ".text-success"))', '.text-success'),
+	new Heading('[unordered list `new UnorderedList(array)`]', 4),
+	new UnorderedList(array('Lorem ipsum dolor sit amet', 'Consectetur adipiscing elit', 'Integer molestie lorem at massa', 'Facilisis in pretium nisl aliquet')),
+	new Heading('[ordered list `new OrderedList(array)`]', 4),
+	new OrderedList(array('Lorem ipsum dolor sit amet', 'Consectetur adipiscing elit', 'Integer molestie lorem at massa', 'Facilisis in pretium nisl aliquet')),
+	new Heading('[unstyled list `new UnorderedList(array, ".unstyled")`]', 4),
+	new UnorderedList(array('Lorem ipsum dolor sit amet', 'Consectetur adipiscing elit', 'Integer molestie lorem at massa', 'Facilisis in pretium nisl aliquet'), '.unstyled')
 	))->run();
 
 

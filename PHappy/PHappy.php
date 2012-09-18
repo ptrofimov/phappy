@@ -7,5 +7,7 @@
 require_once('Widget.php');
 require_once('Widget/Heading.php');
 require_once('Widget/Paragraph.php');
+require_once('Widget/UnorderedList.php');
+require_once('Widget/OrderedList.php');
 require_once('Page.php');
 
