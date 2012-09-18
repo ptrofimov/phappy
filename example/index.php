@@ -1,6 +1,28 @@
 <?php
 require_once __DIR__ . '/../PHappy/PHappy.php';
 
+(new Page())->run();
+
+
+
+/*echo '123';
+
+(new Page(
+	'#page1',
+	new Header('Page1'),
+	new Button('Goto page 2', function($me){
+		$me->show('#page2');
+	})
+	))->run();
+
+(new Page(
+	'#page2',
+	new Header('Page2'),
+	new Button('Goto page 1')
+	))->run();
+*/
+
+
 /*(new Form(
 	new Input('Enter your #name'),
 	new Button('Say hello', function($me) {
@@ -10,7 +32,7 @@ require_once __DIR__ . '/../PHappy/PHappy.php';
 	))->run();
 */
 
-(new Button('OK'))->run();
+//(new Button('OK'))->run();
 
 /*(new Form(
 	new Input('Enter your #name'),
