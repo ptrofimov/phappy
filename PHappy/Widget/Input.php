@@ -16,13 +16,13 @@ class Input extends Widget
 	 */
 	public function __construct($label)
 	{
-		$this->_label = $label;
 		$args = func_get_args();
 		$selector = '';
 		if(isset($args[1])){
 			$selector = $args[1];
 		}
 		parent::__construct($selector, $label);
+		$this->_label = str_replace('#', '', $label);
 	}
 
 	public function getLabel(){

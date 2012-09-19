@@ -47,7 +47,7 @@ $tableHeaders = array('#', 'First Name', 'Last Name', 'Username');
 		$me->alert('You pushed the button');
 	}),
 	new Heading('[input `new Input(label, [selector])`]', 4),
-	new Input('Enter your name', '#name'),
+	new Input('Enter your #name'),
 	new Button('Say hello', function($me){
 		$me->name = ucfirst($me->name);
 		$me->alert('Hello ' . $me->name);
@@ -57,6 +57,15 @@ $tableHeaders = array('#', 'First Name', 'Last Name', 'Username');
 	new Button('Check', function($me){
 		$me->alert($me->pizza ? 'You like pizza' : 'You don\'t like pizza');
 		$me->pizza = false;
+	}),
+	new Heading('[radiobutton `new RadioButton(array, [selector])`]', 4),
+	new RadioButton(array(
+		'cats' => 'Do you like cats?',
+		'dogs' => 'Do you like dogs?',
+		), '#pets'),
+	new Button('Check', function($me){
+		$me->alert($me->pets == 'cats' ? 'You like cats' : 'You like dogs');
+		$me->pets = 'cats';
 	})
 	))->run();
 

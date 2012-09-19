@@ -2,9 +2,13 @@ window.phappy = {
 	onclick: function(item){
 		var item = $(item);
 		var data = {};
-		$('input[type=text],input[type=radio],select,textarea').each(function(i,item){
+		$('input[type=text],select,textarea').each(function(i,item){
 			var item = $(item);
 			data[item.attr('id')] = item.val();
+		});
+		$('input[type=radio]:checked').each(function(i,item){
+			var item = $(item);
+			data[item.attr('name')] = item.val();
 		});
 		$('input[type=checkbox]').each(function(i,item){
 			var item = $(item);
@@ -20,16 +24,23 @@ window.phappy = {
 	},
 	setValue:function(id, value){
 		var item = $('#' + id);
+		if(!item.length){
+			item = $('[name="' + id + '"]')
+		}
 		var name = item.prop('nodeName');
 		if(name=='INPUT'){
-			if(item.attr('type')=='text'){
+			if(item.attr('type') == 'text'){
 				item.val(value);
-			}else if(item.attr('type')=='checkbox'){
+			}else if(item.attr('type') == 'checkbox'){
 				if(value){
 					item.attr('checked', 'checked');
 				}else{
 					item.removeAttr('checked');
 				}
+			}else if(item.attr('type') == 'radio'){
+				$('input[name="' + id + '"]')
+					.removeAttr('checked')
+					.filter('[value="' + value + '"]').attr('checked', 'checked');
 			}
 		}
 	}
