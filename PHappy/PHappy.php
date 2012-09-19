@@ -10,5 +10,6 @@ require_once('Widget/Paragraph.php');
 require_once('Widget/UnorderedList.php');
 require_once('Widget/OrderedList.php');
 require_once('Widget/Table.php');
+require_once('Widget/Button.php');
 require_once('Page.php');
 

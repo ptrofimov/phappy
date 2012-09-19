@@ -32,7 +32,20 @@ $tableHeaders = array('#', 'First Name', 'Last Name', 'Username');
 	new Heading('[unstyled list `new UnorderedList(array, ".unstyled")`]', 4),
 	new UnorderedList(array('Lorem ipsum dolor sit amet', 'Consectetur adipiscing elit', 'Integer molestie lorem at massa', 'Facilisis in pretium nisl aliquet'), '.unstyled'),
 	new Heading('[table `new Table(data, headers)`]', 4),
-	new Table($tableData, $tableHeaders)
+	new Table($tableData, $tableHeaders),
+	new Heading('[buttons `new Button(label, [selector])`]', 4),
+	new Button('Default', ''),
+	new Button('Primary', '.btn-primary'),
+	new Button('Info', '.btn-info'),
+	new Button('Success', '.btn-success'),
+	new Button('Warning', '.btn-warning'),
+	new Button('Danger', '.btn-danger'),
+	new Button('Inverse', '.btn-inverse'),
+	new Button('Link', '.btn-link'),
+	new Heading('[button with callback `new Button(label, [callback], [selector])`]', 4),
+	new Button('Default', function($me){
+		$me->alert('You pushed the button');
+	})
 	))->run();
 
 
