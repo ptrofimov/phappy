@@ -66,6 +66,17 @@ $tableHeaders = array('#', 'First Name', 'Last Name', 'Username');
 	new Button('Check', function($me){
 		$me->alert($me->pets == 'cats' ? 'You like cats' : 'You like dogs');
 		$me->pets = 'cats';
+	}),
+	new Heading('[select `new Select(array, [multiple], [selector])`]', 4),
+	new Select(array(
+		'php' => 'PHP',
+		'python' => 'Python',
+		'perl' => 'Perl',
+		'ruby' => 'Ruby',
+		), '#language'),
+	new Button('Check', function($me){
+		$me->alert('You like ' . $me->language);
+		$me->language = 'php';
 	})
 	))->run();
 

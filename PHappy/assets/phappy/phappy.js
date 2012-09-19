@@ -42,6 +42,8 @@ window.phappy = {
 					.removeAttr('checked')
 					.filter('[value="' + value + '"]').attr('checked', 'checked');
 			}
+		}else if(name == 'SELECT'){
+			item.val(value);
 		}
 	}
 };

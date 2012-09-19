@@ -14,6 +14,7 @@ require_once('Widget/Button.php');
 require_once('Widget/Input.php');
 require_once('Widget/CheckBox.php');
 require_once('Widget/RadioButton.php');
+require_once('Widget/Select.php');
 require_once('Mediator.php');
 require_once('Page.php');
 

@@ -35,7 +35,7 @@ class RadioButton extends Widget
 	public function run()
 	{
 		foreach($this->_items as $key => $value){
-			echo sprintf('<label><input type="radio" name="%s" value="%s" /> %s</label>',
+			echo sprintf('<label class="radio"><input type="radio" name="%s" value="%s" /> %s</label>',
 				$this->getId(), $key, $value);
 		}
 	}
