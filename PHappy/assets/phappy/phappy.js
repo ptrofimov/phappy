@@ -44,6 +44,8 @@ window.phappy = {
 			}
 		}else if(name == 'SELECT'){
 			item.val(value);
+		}else if(name == 'TEXTAREA'){
+			item.val(value);
 		}
 	}
 };

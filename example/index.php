@@ -77,6 +77,12 @@ $tableHeaders = array('#', 'First Name', 'Last Name', 'Username');
 	new Button('Check', function($me){
 		$me->alert('You like ' . $me->language);
 		$me->language = 'php';
+	}),
+	new Heading('[textarea `new Textarea([rows], [selector])`]', 4),
+	new Textarea(3, '#message'),
+	new Button('Check', function($me){
+		$me->alert('You wrote: ' . $me->message);
+		$me->message = 'Thank you!';
 	})
 	))->run();
 
