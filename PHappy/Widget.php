@@ -25,7 +25,7 @@ class Widget
 			}
 		}
 		if(!$this->_id){
-			$this->_id = sprintf('control%d', self::$_idTop++);
+			$this->_id = sprintf('widget%d', self::$_idTop++);
 		}
 	}
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * Heading widget (h1, h2, etc)
+ * Heading widget (<h1>, <h2>, etc)
  * 
  * @author Petr Trofimov <petrofimov@yandex.ru>
  */

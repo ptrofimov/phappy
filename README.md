@@ -7,8 +7,8 @@ This is base for rapid PHP prototyping. No HTML, no CSS, no JS, only pure PHP.
 ### 1. Just write few lines of PHP code:
 
 ```php
-(new Form(
-  new Input('Enter your #name'),
+(new Page(
+	new Input('Enter your #name'),
 	new Button('Say hello', function($me) {
 		$me->name = ucfirst($me->name);
 		$me->alert('Hello ' . $me->name);
