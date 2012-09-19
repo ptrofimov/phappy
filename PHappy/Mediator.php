@@ -1,16 +1,15 @@
 <?php
+/**
+ * Mediator (connects client-side and server-side)
+ * 
+ * @author Petr Trofimov <petrofimov@yandex.ru>
+ */
 class Mediator
 {
-	private $_form, $_list, $_values;
+	private $_page, $_list, $_values;
 
-	public function __construct(Form $form){
-		$this->_form = $form;
-		if(isset($_GET['event'])){
-			$this->_values = $_POST;
-			$this->_form->getControl($_GET['id'])->onclick($this);
-			echo $this;
-			exit;
-		}
+	public function __construct(Page $page){
+		$this->_page = $page;
 	}
 
 	public function __get($key){
@@ -30,7 +29,12 @@ class Mediator
 		$this->_list[] = sprintf('alert(%s)', json_encode($msg));
 	}
 
-	public function __toString(){
-		return implode(';', $this->_list);
+	public function run(){
+		if(isset($_GET['event'])){
+			$this->_values = $_POST;
+			$this->_page->getWidget($_GET['id'])->onclick($this);
+			echo implode(';', $this->_list);
+			exit;
+		}
 	}
 }

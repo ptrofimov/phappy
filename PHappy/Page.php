@@ -63,6 +63,7 @@ class Page extends Widget
 			readfile(__DIR__ . '/assets/phappy/phappy.js');
 			exit;
 		}
+		(new Mediator($this))->run();
 		echo '<!DOCTYPE html>';
 		echo '<html>';
 		echo '<head><title>PHappy</title>';
