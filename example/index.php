@@ -45,7 +45,9 @@ $tableHeaders = array('#', 'First Name', 'Last Name', 'Username');
 	new Heading('[button with callback `new Button(label, [callback], [selector])`]', 4),
 	new Button('Default', function($me){
 		$me->alert('You pushed the button');
-	})
+	}),
+	new Heading('[input `new Input(label, [selector])`]', 4),
+	new Input('Enter your name')
 	))->run();
 
 
