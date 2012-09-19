@@ -47,7 +47,11 @@ $tableHeaders = array('#', 'First Name', 'Last Name', 'Username');
 		$me->alert('You pushed the button');
 	}),
 	new Heading('[input `new Input(label, [selector])`]', 4),
-	new Input('Enter your name')
+	new Input('Enter your name', '#name'),
+	new Button('Say hello', function($me){
+		$me->name = ucfirst($me->name);
+		$me->alert('Hello ' . $me->name);
+	})
 	))->run();
 
 

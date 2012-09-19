@@ -1,15 +1,14 @@
 window.phappy = {
 	onclick: function(item){
 		var item = $(item);
-		var form = item.parents('form');
 		var data = {};
-		form.find('input[type=text],input[type=radio],select').each(function(i,item){
+		$('input[type=text],input[type=radio],select').each(function(i,item){
 			var item = $(item);
 			data[item.attr('id')] = item.val();
 		});
-		form.find('input[type=checkbox]').each(function(i,item){
+		$('input[type=checkbox]').each(function(i,item){
 			var item = $(item);
-			data[item.attr('id')] = item.attr('checked')?1:0;
+			data[item.attr('id')] = item.attr('checked') ? 1 : 0;
 		});
 		$.ajax({
 			type: 'POST',
