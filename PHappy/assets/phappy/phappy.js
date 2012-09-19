@@ -2,7 +2,7 @@ window.phappy = {
 	onclick: function(item){
 		var item = $(item);
 		var data = {};
-		$('input[type=text],input[type=radio],select').each(function(i,item){
+		$('input[type=text],input[type=radio],select,textarea').each(function(i,item){
 			var item = $(item);
 			data[item.attr('id')] = item.val();
 		});

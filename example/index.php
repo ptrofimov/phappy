@@ -51,6 +51,12 @@ $tableHeaders = array('#', 'First Name', 'Last Name', 'Username');
 	new Button('Say hello', function($me){
 		$me->name = ucfirst($me->name);
 		$me->alert('Hello ' . $me->name);
+	}),
+	new Heading('[checkbox `new CheckBox(label, [selector])`]', 4),
+	new CheckBox('Do you like #pizza?'),
+	new Button('Check', function($me){
+		$me->alert($me->pizza ? 'You like pizza' : 'You don\'t like pizza');
+		$me->pizza = false;
 	})
 	))->run();
 
