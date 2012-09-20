@@ -91,6 +91,17 @@ $tableHeaders = array('#', 'First Name', 'Last Name', 'Username');
 	new Heading('[redirect `$me->redirect(url)`]', 4),
 	new Button('Go to wrong url', function($me){
 		$me->redirect('/wrongurl');
+	}),
+	new Heading('[show/hide/toggle]', 4),
+	new Paragraph('Test paragraph', '#tp'),
+	new Button('Show', function($me){
+		$me->show('#tp');
+	}),
+	new Button('Hide', function($me){
+		$me->hide('#tp');
+	}),
+	new Button('Toggle', function($me){
+		$me->toggle('#tp');
 	})
 	))->run();
 

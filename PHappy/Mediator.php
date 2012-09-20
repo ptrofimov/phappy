@@ -49,6 +49,33 @@ class Mediator
 		$this->_list[] = sprintf('window.location = %s', json_encode($url));
 	}
 
+	/**
+	 * Calls JQuery method "show"
+	 *
+	 * @param $selector string
+	 */
+	public function show($selector){
+		$this->_list[] = sprintf('$(%s).show()', json_encode($selector));
+	}
+
+	/**
+	 * Calls JQuery method "hide"
+	 *
+	 * @param $selector string
+	 */
+	public function hide($selector){
+		$this->_list[] = sprintf('$(%s).hide()', json_encode($selector));
+	}
+
+	/**
+	 * Calls JQuery method "toggle"
+	 *
+	 * @param $selector string
+	 */
+	public function toggle($selector){
+		$this->_list[] = sprintf('$(%s).toggle()', json_encode($selector));
+	}
+
 	public function run(){
 		if(isset($_GET['event'])){
 			$this->_values = $_POST;
