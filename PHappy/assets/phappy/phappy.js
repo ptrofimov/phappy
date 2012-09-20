@@ -46,6 +46,8 @@ window.phappy = {
 			item.val(value);
 		}else if(name == 'TEXTAREA'){
 			item.val(value);
+		}else{
+			item.html(value);
 		}
 	}
 };

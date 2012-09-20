@@ -102,6 +102,11 @@ $tableHeaders = array('#', 'First Name', 'Last Name', 'Username');
 	}),
 	new Button('Toggle', function($me){
 		$me->toggle('#tp');
+	}),
+	new Heading('[set html for nodes]', 4),
+	new Paragraph('Hello World', '#hw'),
+	new Button('Change', function($me){
+		$me->hw = 'How are you?';
 	})
 	))->run();
 
