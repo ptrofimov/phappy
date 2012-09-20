@@ -29,6 +29,26 @@ class Mediator
 		$this->_list[] = sprintf('alert(%s)', json_encode($msg));
 	}
 
+	/**
+	 * Outputs messages to console.log
+	 */
+	public function log()
+	{
+		$params = array();
+		$args = func_get_args();
+		foreach($args as $arg){
+			$params[] = json_encode($arg);
+		}
+		$this->_list[] = sprintf('window.console && console.log(%s)', implode(',', $params));
+	}
+
+	/**
+	 * Changes window.location
+	 */
+	public function redirect($url){
+		$this->_list[] = sprintf('window.location = %s', json_encode($url));
+	}
+
 	public function run(){
 		if(isset($_GET['event'])){
 			$this->_values = $_POST;

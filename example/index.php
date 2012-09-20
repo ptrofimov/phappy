@@ -83,6 +83,14 @@ $tableHeaders = array('#', 'First Name', 'Last Name', 'Username');
 	new Button('Check', function($me){
 		$me->alert('You wrote: ' . $me->message);
 		$me->message = 'Thank you!';
+	}),
+	new Heading('[console.log `$me->log(args)`]', 4),
+	new Button('Console.log', function($me){
+		$me->log('%s is %s!', 'PHP', 'good');
+	}),
+	new Heading('[redirect `$me->redirect(url)`]', 4),
+	new Button('Go to wrong url', function($me){
+		$me->redirect('/wrongurl');
 	})
 	))->run();
 
