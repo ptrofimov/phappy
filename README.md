@@ -1,24 +1,33 @@
 # &#9786;&#9786;&#9786; PHappy! &#9786;&#9786;&#9786;
 
-*Use PHappy and be happy: rapid PHP prototyping (pronounced as [pi`happi])*
+*Use PHappy and be happy: quick PHP prototyping (pronounced as [pi`happi])*
 
-This is base for rapid PHP prototyping. No HTML, no CSS, no JS, only pure PHP.
+This is base for quick PHP prototyping. No HTML, no CSS, no JS, just pure PHP.
 
-### 1. Just write few lines of PHP code:
+## Quick start for quick prototyping
+
+1. Download [latest](https://github.com/ptrofimov/phappy/zipball/master) version of PHappy
+
+2. Include it in your script:
+
+```php
+require_once('PHappy/PHappy.php');
+```
+3. Just write few lines of PHP code:
 
 ```php
 (new Page(
-	new Input('Enter your #name'),
-	new Button('Say hello', function($me) {
-		$me->name = ucfirst($me->name);
-		$me->alert('Hello ' . $me->name);
+	new Input('Enter your #name'),           # PHappy can extract ID from label
+	new Button('Say hello', function($me) {  # Handler for click event (executed on server-side)
+		$me->name = ucfirst($me->name);      # Easy to get values from page, easy to set
+		$me->alert('Hello ' . $me->name);    # Available the most popular javascript and jQuery functions
 	})
 	))->run();
 ```
 
-### 2. And get working application:
+4. Run the script in your browser and, wuala, get working application:
 
-![PHappy](https://raw.github.com/ptrofimov/phappy/master/example/picture.png)
+![PHappy - quick PHP prototyping](https://raw.github.com/ptrofimov/phappy/master/example/picture.png)
 
 ## Inside
 
@@ -30,8 +39,7 @@ This is base for rapid PHP prototyping. No HTML, no CSS, no JS, only pure PHP.
 
 ## Notice
 
-This is just the beginning. The outline. The project is in active development. 
-If you wanna be a collaborator you are welcome. Write me to issues.
+The project is in active development. If you wanna be a collaborator you are welcome. Write me to issues.
 
 --------------------------------------------------------
 *Tags:* phappy, php, prototyping

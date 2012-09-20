@@ -25,7 +25,11 @@ class Input extends Widget
 		$this->_label = str_replace('#', '', $label);
 	}
 
-	public function getLabel(){
+	public function label($value = null){
+		if(isset($value)){
+			$this->_label = $value;
+			return $this;
+		}
 		return $this->_label;
 	}
 
