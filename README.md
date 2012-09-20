@@ -1,4 +1,4 @@
-# &#9786;&#9786;&#9786; PHappy! &#9786;&#9786;&#9786;
+# PHappy!
 
 *Use PHappy and be happy: quick PHP prototyping (pronounced as [pi`happi])*
 
@@ -6,14 +6,14 @@ This is base for quick PHP prototyping. No HTML, no CSS, no JS, just pure PHP.
 
 ## Quick start for quick prototyping
 
-1. Download [latest](https://github.com/ptrofimov/phappy/zipball/master) version of PHappy
+&#9786; Download [latest](https://github.com/ptrofimov/phappy/zipball/master) version of PHappy
 
-2. Include it in your script:
+&#9786; Include it in your script:
 
 ```php
 require_once('PHappy/PHappy.php');
 ```
-3. Just write few lines of PHP code:
+&#9786; Just write few lines of PHP code:
 
 ```php
 (new Page(
@@ -25,17 +25,17 @@ require_once('PHappy/PHappy.php');
 	))->run();
 ```
 
-4. Run the script in your browser and, wuala, get working application:
+&#9786; Run the script in your browser and, wuala, get working application:
 
 ![PHappy - quick PHP prototyping](https://raw.github.com/ptrofimov/phappy/master/example/picture.png)
 
 ## Inside
 
-- HTML5, jQuery, Bootstrap and PHP 5.4
-- Generic Bootstrap controls
-- Event handlers on server-side using all PHP functionality
-- Bidirectional data exchange: form on client side <-> server event handler
-- Javascript and CSS loaded via one public file
+&#9786; HTML5, jQuery, Bootstrap and PHP 5.4
+&#9786; Generic Bootstrap controls
+&#9786; Event handlers on server-side using all PHP functionality
+&#9786; Bidirectional data exchange: form on client side <-> server event handler
+&#9786; Javascript and CSS loaded via one public file
 
 ## Notice
 
