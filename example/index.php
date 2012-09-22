@@ -109,10 +109,11 @@ $tableHeaders = array('#', 'First Name', 'Last Name', 'Username');
 		$me->hw = 'How are you?';
 	}),
 	new Heading('[dynamic create widgets]', 4),
+	new Input('', '#indicator'),
 	function($me){
 		foreach(range(0, 9) as $i){
 			$me->add(new Button($i, function($me){
-				$me->alert('You pushed ' . $me->this);
+				$me->indicator .= $me->this;
 			}));
 		}
 	}
