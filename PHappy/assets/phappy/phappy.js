@@ -14,6 +14,10 @@ window.phappy = {
 			var item = $(item);
 			data[item.attr('id')] = item.attr('checked') ? 1 : 0;
 		});
+		$('button').each(function(i,item){
+			var item = $(item);
+			data[item.attr('id')] = item.html();
+		});
 		$.ajax({
 			type: 'POST',
 			dataType: 'script',

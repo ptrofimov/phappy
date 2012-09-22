@@ -35,12 +35,19 @@ class Page extends Widget
 			unset($args[1]);
 		}
 		foreach($args as $item){
-			if(! $item instanceof Widget){
+			if($item instanceof Closure){
+				$item($this);
+			}elseif($item instanceof Widget){
+				$this->add($item);
+			}else{
 				throw new Exception('Argument must be widget instance');
 			}
-			$this->_widgets[ $item->getId() ] = $item;
 		}
 		parent::__construct($selector, $this->_title);
+	}
+
+	public function add(Widget $widget){
+		$this->_widgets[ $widget->getId() ] = $widget;
 	}
 
 	public function getWidget($id){

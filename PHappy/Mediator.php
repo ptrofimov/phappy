@@ -6,13 +6,16 @@
  */
 class Mediator
 {
-	private $_page, $_list, $_values;
+	private $_page, $_list, $_values, $_this;
 
 	public function __construct(Page $page){
 		$this->_page = $page;
 	}
 
 	public function __get($key){
+		if($key == 'this'){
+			$key = $this->_this;
+		}
 		return isset($this->_values[$key]) ? $this->_values[$key] : null;
 	}
 
@@ -20,7 +23,10 @@ class Mediator
 /*		if(!isset($this->_values[$key])){
 			throw new Exception(sprintf('Invalid key "%s"', $key));
 		}
-*/		$this->_values[$key] = $value;
+*/		if($key == 'this'){
+			$key = $this->_this;
+		}
+		$this->_values[$key] = $value;
 		$this->_list[] = sprintf('phappy.setValue("%s",%s)', $key, json_encode($value));
 	}
 
@@ -79,6 +85,7 @@ class Mediator
 	public function run(){
 		if(isset($_GET['event'])){
 			$this->_values = $_POST;
+			$this->_this = $_GET['id'];
 			$this->_page->getWidget($_GET['id'])->onclick($this);
 			echo implode(';', $this->_list);
 			exit;

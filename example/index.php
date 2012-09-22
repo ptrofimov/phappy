@@ -107,6 +107,14 @@ $tableHeaders = array('#', 'First Name', 'Last Name', 'Username');
 	new Paragraph('Hello World', '#hw'),
 	new Button('Change', function($me){
 		$me->hw = 'How are you?';
-	})
+	}),
+	new Heading('[dynamic create widgets]', 4),
+	function($me){
+		foreach(range(0, 9) as $i){
+			$me->add(new Button($i, function($me){
+				$me->alert('You pushed ' . $me->this);
+			}));
+		}
+	}
 	))->run();
 
