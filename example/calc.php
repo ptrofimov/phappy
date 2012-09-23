@@ -7,6 +7,9 @@ require_once(__DIR__ . '/../PHappy/PHappy.php');
 	function($me){
 		foreach(range(0,9) as $n){
 			$me->add(new Button($n, function($me){
+				if($me->op){
+					$me->number = '';
+				}
 				$me->number .= $me->this;
 			}));
 		}
@@ -14,7 +17,12 @@ require_once(__DIR__ . '/../PHappy/PHappy.php');
 	function($me){
 		foreach(array('+','-','*','/') as $o){
 			$me->add(new Button($o, function($me){
-				$me->alert($me->op);
+				if($me->op){
+					$me->op == '+' && $me->number += $me->temp;
+					$me->op == '-' && $me->number -= $me->temp;
+					$me->op == '*' && $me->number *= $me->temp;
+					$me->op == '/' && $me->number /= $me->temp;
+				}
 				$me->op = $me->this;
 				$me->temp = $me->number;
 			}));
