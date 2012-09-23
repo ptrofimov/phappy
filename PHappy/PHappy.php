@@ -17,5 +17,6 @@ require_once('Widget/RadioButton.php');
 require_once('Widget/Select.php');
 require_once('Widget/Textarea.php');
 require_once('Mediator.php');
+require_once('Container.php');
 require_once('Page.php');
 

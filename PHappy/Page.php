@@ -4,17 +4,12 @@
  * 
  * @author Petr Trofimov <petrofimov@yandex.ru>
  */
-class Page extends Widget
+class Page extends Container
 {
 	/**
 	 * @var string
 	 */
 	private $_title = '';
-
-	/**
-	 * @var array
-	 */
-	private $_widgets = array();
 
 	/**
 	 * __construct([title], [selector], [widgets])
@@ -34,28 +29,8 @@ class Page extends Widget
 			$selector = $args[1];
 			unset($args[1]);
 		}
-		foreach($args as $item){
-			if($item instanceof Closure){
-				$item($this);
-			}elseif($item instanceof Widget){
-				$this->add($item);
-			}else{
-				throw new Exception('Argument must be widget instance');
-			}
-		}
+		$this->add($args);
 		parent::__construct($selector, $this->_title);
-	}
-
-	public function add(Widget $widget){
-		$this->_widgets[ $widget->getId() ] = $widget;
-	}
-
-	public function getWidget($id){
-		return isset($this->_widgets[$id]) ? $this->_widgets[$id] : null;
-	}
-
-	public function getWidgets(){
-		return $this->_widgets;
 	}
 
 	public function run(){
@@ -79,9 +54,7 @@ class Page extends Widget
 		echo '</head>';
 		echo sprintf('<body id="%s" class="%s">', $this->getId(), implode(' ', $this->getClasses()));
 		echo '<div class="container">';
-		foreach($this->_widgets as $widget){
-			$widget->run();
-		}
+		parent::run();
 		echo '</div>';
 		echo '</body>';
 		echo '</html>';

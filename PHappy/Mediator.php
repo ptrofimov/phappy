@@ -86,7 +86,7 @@ class Mediator
 		if(isset($_GET['event'])){
 			$this->_values = $_POST;
 			$this->_this = $_GET['id'];
-			$this->_page->getWidget($_GET['id'])->onclick($this);
+			$this->_page->widgets()[$_GET['id']]->onclick($this);
 			echo implode(';', $this->_list);
 			exit;
 		}
