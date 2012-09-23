@@ -49,6 +49,6 @@ class Button extends Widget
 	 */
 	public function run()
 	{
-		echo sprintf('&nbsp;<button id="%s" class="btn %s" type="button">%s</button>', $this->getId(), implode(' ', $this->getClasses()), $this->_label);
+		echo sprintf('<button id="%s" class="btn %s" type="button">%s</button>', $this->getId(), implode(' ', $this->getClasses()), $this->_label);
 	}
 }

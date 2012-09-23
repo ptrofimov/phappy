@@ -14,9 +14,9 @@ class Container extends Widget
 	public function add($item){
 		if($item instanceof Closure){
 			$item($this);
-		}elseif($item instanceof Container){
+		}/*elseif($item instanceof Container){
 			$this->add($item->widgets());
-		}elseif(is_array($item)){
+		}*/elseif(is_array($item)){
 			foreach($item as $i){
 				$this->add($i);
 			}
