@@ -2,7 +2,7 @@ window.phappy = {
 	onclick: function(item){
 		var item = $(item);
 		var data = {};
-		$('input[type=text],select,textarea').each(function(i,item){
+		$('input[type=text],input[type=hidden],select,textarea').each(function(i,item){
 			var item = $(item);
 			data[item.attr('id')] = item.val();
 		});
@@ -31,9 +31,19 @@ window.phappy = {
 		if(!item.length){
 			item = $('[name="' + id + '"]')
 		}
+		if(!item.length){
+			item = $('<input />').attr({
+				id: id,
+				type: 'hidden',
+				value: value
+			}).appendTo('body');
+			return;
+		}
 		var name = item.prop('nodeName');
 		if(name=='INPUT'){
 			if(item.attr('type') == 'text'){
+				item.val(value);
+			}else if(item.attr('type') == 'hidden'){
 				item.val(value);
 			}else if(item.attr('type') == 'checkbox'){
 				if(value){
