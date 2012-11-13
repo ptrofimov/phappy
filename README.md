@@ -39,7 +39,7 @@ require_once('PHappy/PHappy.php');
 
 ## Notice
 
-The project is in active development. If you wanna be a collaborator you are welcome. Write me to issues.
+If you wanna be a collaborator you are welcome. Write me to issues.
 
 --------------------------------------------------------
 *Tags:* phappy, php, prototyping
