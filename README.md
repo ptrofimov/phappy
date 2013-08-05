@@ -37,9 +37,6 @@ require_once('PHappy/PHappy.php');
 - Bidirectional data exchange: form on client side <-> server event handler
 - Javascript and CSS loaded via one public file
 
-## Notice
+## Widgets demo
 
-If you wanna be a collaborator you are welcome. Write me to issues.
-
---------------------------------------------------------
-*Tags:* phappy, php, prototyping
+![Widgets demo](https://raw.github.com/ptrofimov/phappy/master/example/widgets.png)
